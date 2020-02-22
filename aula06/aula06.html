@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="appAngular">
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+
+    </head>
+    <body ng-controller="Principal as clt">
+        <h2>Informações da Empresa</h2>
+
+            <div ng-repeat="(atrib,dados) in clt.empresas">
+                <strong><span ng-bind="atrib"/></span></strong>
+                <br>
+                CPNJ: {{dados.CNPJ}} <br>
+                Descrição: {{dados.Descricao}} <br>
+                Endereço:<br>
+                Logradouro:{{dados.Endereco.Logradouro}}<br>
+                Numero:{{dados.Endereco.Numero}} <br>
+                Cidade:{{dados.Endereco.cidade}}
+            </div>
+        <script>
+
+            console.log("teste")
+            angular.module("appAngular",[])
+                .controller('Principal',[function(){
+                    
+                    let self = this;
+
+                    self.empresas = {
+                        Atributos:{
+                            CPNJ:"00.000.1221.212/0001-55",
+                            Descricao:"Empresa XYZ",
+                            Endereco:{
+                                Logradouro:
+                                    'Avenida Paulista',
+                                Numero:
+                                    '1200',
+                                
+                                Cidade: 
+                                    'São Paulo'
+                            }
+                        }
+                    }
+
+                }]);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="appAngular">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Aula 05</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <style>
+        .finalizado{
+            color:blue;
+        }
+        .pendente{
+            color:red;
+        }
+    </style>
+</head>
+<body ng-controller="Principal as ctl">
+    <h2>Lista de alunos</h2>
+    <div ng-repeat="aluno in ctl.alunos" ng-class="ctl.verificarStatus(aluno.status)">
+         Nome:{{aluno.nome}} <br>
+         Curso:{{aluno.curso}}<br>
+         Status:{{aluno.status}}<br>
+
+         <span> ======================================</span>
+    </div>
+
+    <script>
+        
+        angular.module("appAngular",[])
+            .controller('Principal',[function(){
+
+                var self  = this;
+
+                self.alunos = 
+
+                [
+                    {nome: "Duda", curso: "AngularJS", status: "Aprovado"},
+                    {nome: "Jonny", curso: "Android", status: "Aprovado"},
+                    {nome: "Ana", curso: "Android", status: "Reprovado"},
+                    {nome: 'Mi', curso:'Nutrição'},
+
+                ];
+
+                console.log(self.alunos);
+                self.verificarStatus = function (status) {
+                    return {
+                        finalizado: status != null,
+                        pendente: status == null
+                    }
+                }
+
+            }]);
+    </script>
+</body>
+</html>
