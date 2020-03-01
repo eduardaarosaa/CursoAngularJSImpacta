@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+</head>
+<body>
+    <h1>Controle de ALunos</h1>
+    <form ng-submit="clt.submit()">
+        Nome:<br>
+        <input type="text" ng-model="clt.nome"/>
+        Curso:<br>
+        <select ng-model="clt.curso" ng-options="">
+
+        </select>
+    </form>
+</body>
+</html>
