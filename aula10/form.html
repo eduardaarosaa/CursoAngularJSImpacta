@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="appAngular">
+
+<head>
+  <title>AngularJS</title>
+</head>
+
+<body>
+  <div ng-controller="Principal as clt">
+    <h2>Qual curso você deseja realizar?</h2>
+    <form name="formCursos">
+      <div ng-repeat="curso in clt.cursos">
+        <label>{{curso.descricao}}
+          <input type="checkbox" ng-model="curso.selecionado" 
+          ng-true-value="'SIM'"
+          ng-true-value="'NAO'">
+        </label>{{curso.selecionado}} <br/>
+        </div>
+      </form>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+
+      <script type="text/javascript">
+        angular.module("appAngular", [])
+          .controller('Principal', [function () {
+            var self = this;
+            self.cursos = [
+              { descricao: 'JAVA', selecionado: "SIM" },
+              { descricao: 'PHP', selecionado: "SIM" },
+              { descricao: '.NET', selecionado: "Não" }
+            ];
+          }]);
+      </script>
+      
+  </body>
+</html>

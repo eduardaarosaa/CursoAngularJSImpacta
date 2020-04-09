@@ -14,7 +14,7 @@
         Nome:<br>
         <input type="text" ng-model="clt.nome"/>
         Curso:<br>
-        <select ng-model="clt.curso" ng-options="">
+        <select ng-model="clt.curso" ng-options="c.descricao for c in clt.cursos">
 
         </select>
     </form>
